@@ -1,0 +1,7 @@
+.main{
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    border: 10px solid lightslategrey;
+    background: whitesmoke;
+}
