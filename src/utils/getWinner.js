@@ -1,42 +1,113 @@
 
 function getWinner(cells) {
-    let winner;
-    let isCellEmpty = false;
-    for (let i=0; i<3; i++) {
-      if (cells[i].content === 'X' && cells[i+3].content === 'X' && cells[i+6].content === 'X') {
-        winner = 'X';
-      } else if (cells[i].content === 'O' && cells[i+3].content === 'O' && cells[i+6].content === 'O') {
-        winner = 'O';
+  let winner;
+  let isCellEmpty = false;
+  let isWinnerFound = true;
+
+  for (let i=0; i<cells.length; i++) {
+    isCellEmpty = false;
+    isWinnerFound = true;
+    for (let j=0; j<cells[0].length; j++) {
+      if (cells[i][j].content === '') {
+        isCellEmpty = true;
+        isWinnerFound = false;
       }
     }
-    if (winner !== 'X' && winner !== 'O') {
-      for (let i=0; i<9; i+=3) {
-        if (cells[i].content === 'X' && cells[i+1].content === 'X' && cells[i+2].content === 'X') {
-          winner = 'X';
-        } else if (cells[i].content === 'O' && cells[i+1].content === 'O' && cells[i+2].content === 'O') {
-          winner = 'O';
+    if (isCellEmpty !== true) {
+      for (let j=0; j<cells[0].length-1; j++) {
+        if (cells[i][j].content !== cells[i][j+1].content) {
+          isWinnerFound = false;
         }
       }
     }
-    if (winner !== 'X' && winner !== 'O') {
-      if ((cells[0].content === 'X' && cells[4].content === 'X' && cells[8].content === 'X') || (cells[2].content === 'X' && cells[4].content === 'X' && cells[6].content === 'X')) {
-        winner = 'X';
-      } else if ((cells[0].content === 'O' && cells[4].content === 'O' && cells[8].content === 'O') || (cells[2].content === 'O' && cells[4].content === 'O' && cells[6].content === 'O')) {
-        winner = 'O';
-      }
+    if (isWinnerFound) {
+      winner = cells[i][0].content;
+      return winner;
     }
-    if (winner !== 'X' && winner !== 'O') {
-      for (let i=0; i<9; i++) {
-        if (cells[i].content === '') {
+  }
+
+  if (isWinnerFound !== true) {
+    for (let i=0; i<cells[0].length; i++)  {
+      isCellEmpty = false;
+      isWinnerFound = true;
+      for (let j=0; j<cells.length; j++) {
+        if (cells[j][i].content === '') {
           isCellEmpty = true;
+          isWinnerFound = false;
         }
       }
       if (isCellEmpty !== true) {
-        winner = 'D';
+        for (let j=0; j<cells.length-1; j++) {
+          if (cells[j][i].content !== cells[j+1][i].content) {
+            isWinnerFound = false;
+          }
+        }
+      }
+      if (isWinnerFound) {
+        winner = cells[0][i].content;
+        return winner;
       }
     }
+  }
 
-    return winner;
+  if (isWinnerFound !== true) {
+    isCellEmpty = false;
+    isWinnerFound = true;
+    for (let i=0; i<cells.length; i++) {
+      if (cells[i][i].content === '') {
+        isCellEmpty = true;
+        isWinnerFound = false;
+      }
+    }
+    if (isCellEmpty !== true) {
+      for (let i=0; i<cells.length-1; i++) {
+        if (cells[i][i].content !== cells[i+1][i+1].content) {
+          isWinnerFound = false;
+        }
+      }
+    }
+    if (isWinnerFound) {
+      winner = cells[0][0].content;
+      return winner;
+    }
+  }
+
+  if (isWinnerFound !== true) {
+    isCellEmpty = false;
+    isWinnerFound = true;
+    for (let i=0; i<cells.length; i++) {
+      if (cells[i][cells.length-1-i].content === '') {
+        isCellEmpty = true;
+        isWinnerFound = false;
+      }
+    }
+    if (isCellEmpty !== true) {
+      for (let i=0; i<cells.length-1; i++) {
+        if (cells[i][cells.length-1-i].content !== cells[i+1][cells.length-2-i].content) {
+          isWinnerFound = false;
+        }
+      }
+    }
+    if (isWinnerFound) {
+      winner = cells[0][cells.length-1].content;
+      return winner;
+    }
+  }
+
+  if (isWinnerFound !== true) {
+    isCellEmpty = false;
+    for (let i=0; i<cells.length; i++) {
+      for (let j=0; j<cells[0].length; j++){
+        if (cells[i][j].content === '') {
+          isCellEmpty = true;
+        }
+      }
+    }
+    if (isCellEmpty !== true) {
+      winner = 'D';
+      return winner;
+    }
+  }
 }
 
 export default getWinner;
