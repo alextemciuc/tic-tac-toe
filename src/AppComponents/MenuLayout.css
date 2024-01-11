@@ -1,41 +1,37 @@
 
 .menu{
-    width: 600px;
-    height: 600px;
-    background-image: url(/public/background.png);
-    position: relative;
+  width: 600px;
+  height: 600px;
+  background-image: url(/public/background.png);
+  position: relative;
 }
 
 .menu-buttons-container{
-    width: 300px;
-    /* border: 1px solid black; */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* -ms-transform: translate(-50%, -50%); */
-    transform: translate(-50%, -50%);
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* -ms-transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
 }
 
 .menu-game-button{
-    width: 300px;
-    height: 60px;
-    position: relative;
-    /* position: absolute;
-    left: 25%;
-    top: 45%; */
-    border: 1px solid rgb(89, 157, 180);
-    border-radius: 20px;
-    background-color: lightblue;
-    line-height: 60px;
-    text-align: center;
-    font-size: 50px;
-    box-shadow: 0px 4px 0px rgb(102, 119, 126);
-    cursor: pointer;
-    padding: 0%;
-    margin-bottom: 20px;
+  width: 300px;
+  height: 60px;
+  position: relative;
+  border: 1px solid rgb(89, 157, 180);
+  border-radius: 20px;
+  background-color: lightblue;
+  line-height: 60px;
+  text-align: center;
+  font-size: 50px;
+  box-shadow: 0px 4px 0px rgb(102, 119, 126);
+  cursor: pointer;
+  padding: 0%;
+  margin-bottom: 20px;
 }
 
 .menu-game-button:active{
-    top: 2px;
-    box-shadow: 0px 2px 0px rgb(102, 119, 126);
+  top: 2px;
+  box-shadow: 0px 2px 0px rgb(102, 119, 126);
 }

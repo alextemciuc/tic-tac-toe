@@ -1,29 +1,29 @@
 
 .cell{
-    width: 150px;
-    height: 150px;
-    float: left;
-    border: 1px solid cadetblue;
-    box-sizing: border-box;
-    line-height: 150px;
-    text-align: center;
-    font-size: 150px;
-    color: cadetblue;
-    user-select: none;
+  width: 150px;
+  height: 150px;
+  float: left;
+  border: 1px solid cadetblue;
+  box-sizing: border-box;
+  line-height: 150px;
+  text-align: center;
+  font-size: 150px;
+  color: cadetblue;
+  user-select: none;
 }
 
 .top{
-    border-top: none;
+  border-top: none;
 }
 
 .right{
-    border-right: none;
+  border-right: none;
 }
 
 .bottom{
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .left{
-    border-left: none;
+  border-left: none;
 }

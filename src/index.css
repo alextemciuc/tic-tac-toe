@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #EEEEEE;
 }
 
 code {
@@ -12,11 +13,9 @@ code {
     monospace;
 }
 
-.apps {
-  /* padding-top: 5rem; */
-  margin: 0 auto;
+.app {
+  margin: 1rem auto;
   width: 600px;
   height: 600px;
-  border: 10px solid lightslategrey;
-  background: whitesmoke;
+  border: 1px solid lightslategrey;
 }
