@@ -10,52 +10,66 @@
 }
 
 .info-layout-buttons-container{
-  width: 220px;
+  /* width: 220px; */
   /* border: 1px solid black; */
   position: absolute;
   right: 0%;
 }
 
-.pauseButton{
-  width: 100px;
-  height: 25px;
+.home-button{
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
-  padding: 0%;
+  /* padding: 0%; */
   background: lightblue;
   border: 1px solid rgb(89, 157, 180);
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
-  text-align: center;
-  font-size: 20px;
+  /* text-align: center; */
+  /* font-size: 20px; */
   box-shadow: 0px 2px 0px rgb(102, 119, 126);
   position: relative;
 }
 
-.pauseButton:active{
+.home-button:active{
   top: 1px;
   box-shadow: 0px 1px 0px rgb(102, 119, 126);
 }
 
-.saveButton{
-  width: 100px;
-  height: 25px;
-  padding: 0%;
+.home-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sound-button{
+  width: 40px;
+  height: 40px;
+  /* padding: 0%; */
   background: lightblue;
   border: 1px solid rgb(89, 157, 180);
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
-  text-align: center;
-  font-size: 20px;
+  /* text-align: center; */
+  /* font-size: 20px; */
   box-shadow: 0px 2px 0px rgb(102, 119, 126);
   position: relative;
 }
 
-.saveButton:active{
+.sound-button:active{
   top: 1px;
   box-shadow: 0px 1px 0px rgb(102, 119, 126);
 }
 
-.scoreInfo{
+.sound-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.score-info{
   width: 280px;
   height: 20px;
   /* border: 1px solid cadetblue; */
@@ -67,7 +81,7 @@
   transform: translateX(-50%);
 }
 
-.player1Name{
+.player1-name{
   width: 100px;
   height: 20px;
   /* float: left; */
@@ -75,9 +89,10 @@
   box-sizing: border-box;
   text-align: right;
   line-height: 20px;
+  user-select: none;
 }
 
-.player1Score{
+.player1-score{
   width: 40px;
   height: 20px;
   /* float: left; */
@@ -86,23 +101,26 @@
   padding-right: 5px;
   text-align: right;
   line-height: 20px;
+  user-select: none;
 }
 
-.player2Score{
+.player2-score{
   width: 40px;
   height: 20px;
   border-left: 1px solid cadetblue;
   box-sizing: border-box;
   padding-left: 5px;
   line-height: 20px;
+  user-select: none;
 }
 
-.player2Name{
+.player2-name{
   width: 100px;
   height: 20px;
   /* border: 1px solid black; */
   box-sizing: border-box;
   line-height: 20px;
+  user-select: none;
 }
 
 .float{

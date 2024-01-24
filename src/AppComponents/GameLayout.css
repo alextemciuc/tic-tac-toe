@@ -3,8 +3,6 @@
   left: 50%;
   top: 125px;
   transform: translateX(-50%);
-  display: block;
   width: 450px;
   height: 450px;
-  margin: 0 auto;
 }
