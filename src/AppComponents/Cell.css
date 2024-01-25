@@ -2,14 +2,18 @@
 .cell{
   width: 150px;
   height: 150px;
+  position: relative;
   float: left;
   border: 1px solid cadetblue;
   box-sizing: border-box;
-  line-height: 150px;
-  text-align: center;
-  font-size: 150px;
+}
+
+.cell-content{
   color: cadetblue;
-  user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .top{
