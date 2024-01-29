@@ -2,8 +2,12 @@
 .menu{
   width: 600px;
   height: 600px;
-  background-color: #9ee3fa;
   position: relative;
+  background-image: linear-gradient(
+    to bottom left,
+    #9ee3fa 0%,
+    #3aceff 100%
+  );
 }
 
 .config-container{
