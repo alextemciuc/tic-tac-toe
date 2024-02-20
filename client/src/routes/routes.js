@@ -5,7 +5,26 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import TicTacToePage from "../pages/TicTacToePage";
 
-function useRoutes() {
+function useRoutes(isAuthenticated) {
+  if (isAuthenticated) {
+    return (
+      <Routes>
+        <Route path="/" element={
+          <MainPage />
+        }
+        />
+        <Route path="/tictactoe" element={
+          <TicTacToePage />
+        }
+        />
+        <Route path="*" element={
+        <Navigate to="/" replace />
+        }
+        />
+      </Routes>
+    );
+  }
+
   return (
     <Routes>
       <Route path="/" element={
@@ -20,9 +39,6 @@ function useRoutes() {
         <RegisterPage />
       }
       />
-      <Route path="/tictactoe" element={
-        <TicTacToePage />
-      } />
       <Route path="*" element={
         <Navigate to="/" replace />
       }
