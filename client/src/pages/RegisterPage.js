@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useHttp from "../hooks/http.hook";
 
 function RegisterPage() {
-const [form, setForm] = useState({
-  firstName: '',
-  lastName: '',
-  username: '',
-  dateOfBirth: '',
-  email: '',
-  password: ''
-});
+  const {loading, request, error, clearError} = useHttp();
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    username: '',
+    dateOfBirth: '',
+    email: '',
+    password: ''
+  });
 
-function changeHandler(event) {
-  setForm({ ...form, [event.target.name]: event.target.value });
-}
+  useEffect(() => {
+    if (error) {
+      alert(error);
+      clearError();
+    }
+  }, [error, clearError]);
+
+  function changeHandler(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  }
+
+  async function registerHandler() {
+    try {
+      const data = await request('/api/auth/register', 'POST', {...form});
+      console.log('Data: ', data);
+    } catch (e) {}
+  }
 
   return (
     <div className="row justify-content-center mt-3 bg-primary-subtle">
@@ -51,7 +67,7 @@ function changeHandler(event) {
               Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             </div>
           </div>
-          <button className="btn btn-primary">Sign up</button>
+          <button className="btn btn-primary" onClick={registerHandler} disabled={loading}>Sign up</button>
         </div>
       </div>
     </div>
