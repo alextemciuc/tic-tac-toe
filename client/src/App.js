@@ -4,7 +4,8 @@ import Navbar from './components/Navbar';
 import useRoutes from './routes/routes';
 
 function App() {
-  const routes = useRoutes();
+  const isAuthenticated = false;
+  const routes = useRoutes(isAuthenticated);
 
   return (
     <BrowserRouter>
