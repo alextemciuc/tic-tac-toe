@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useHttp from "../hooks/http.hook";
+import AuthContext from "../context/AuthContext";
 
 function LoginPage() {
+  const { login } = useContext(AuthContext);
   const {loading, request, error, clearError} = useHttp();
   const [form, setForm] = useState({
     email: '',
@@ -22,7 +24,7 @@ function LoginPage() {
   async function loginHandler() {
     try {
       const data = await request('/api/auth/login', 'POST', {...form});
-      console.log('Data: ', data);
+      login(data.token, data.userId);
     } catch (e) {}
   }
 
