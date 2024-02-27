@@ -5,6 +5,7 @@ import useRoutes from './routes/routes';
 import useAuth from './hooks/auth.hook';
 import AuthContext from './context/AuthContext';
 import Loader from './components/Loader';
+import "bootstrap";
 
 function App() {
   const { login, logout, token, id, ready } = useAuth();
