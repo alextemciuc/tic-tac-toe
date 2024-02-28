@@ -8,7 +8,7 @@ import Loader from './components/Loader';
 import "bootstrap";
 
 function App() {
-  const { login, logout, token, id, ready } = useAuth();
+  const { login, logout, token, id, username, ready } = useAuth();
   const isAuthenticated = !!token;
   const routes = useRoutes(isAuthenticated);
 
@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={{ login, logout, token, id, isAuthenticated }}>
+    <AuthContext.Provider value={{ login, logout, token, id, username, isAuthenticated }}>
       <BrowserRouter>
         <Navbar />
         <div className='container'>
