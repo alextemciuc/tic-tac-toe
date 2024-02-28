@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 function UserDropdown() {
-  const { logout } = useContext(AuthContext);
+  const { logout, username } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function logoutHandler(event) {
@@ -14,7 +14,7 @@ function UserDropdown() {
 
   return (
     <div className="dropdown">
-      <NavLink className="nav-link dropdown-toggle" to="/username" role="button" data-bs-toggle="dropdown" aria-expanded="false">Username</NavLink>
+      <NavLink className="nav-link dropdown-toggle" to="/username" role="button" data-bs-toggle="dropdown" aria-expanded="false">{username}</NavLink>
       <ul className="dropdown-menu">
         <li><Link className="dropdown-item" to="/account">Account</Link></li>
         <li><Link className="dropdown-item" to="/setting">Setting</Link></li>
