@@ -24,7 +24,7 @@ function LoginPage() {
   async function loginHandler() {
     try {
       const data = await request('/api/auth/login', 'POST', {...form});
-      login(data.token, data.userId);
+      login(data.token, data.userId, data.username);
     } catch (e) {}
   }
 
