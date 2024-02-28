@@ -5,17 +5,20 @@ const storageName = "userData";
 function useAuth() {
   const [token, setToken] = useState(null);
   const [id, setId] = useState(null);
+  const [username, setUsername] = useState(null);
   const [ready, setReady] = useState(false);
 
-  const login = useCallback((jwtToken, userId) => {
+  const login = useCallback((jwtToken, userId, userUsername) => {
     setToken(jwtToken);
     setId(userId);
-    localStorage.setItem(storageName, JSON.stringify({ token: jwtToken, id: userId }));
+    setUsername(userUsername);
+    localStorage.setItem(storageName, JSON.stringify({ token: jwtToken, id: userId, username: userUsername }));
   }, []);
 
   function logout() {
     setToken(null);
     setId(null);
+    setUsername(null);
     localStorage.removeItem(storageName);
   }
 
@@ -23,13 +26,13 @@ function useAuth() {
     const data = JSON.parse(localStorage.getItem(storageName));
 
     if (data && data.token) {
-      login(data.token, data.id);
+      login(data.token, data.id, data.username);
     }
 
     setReady(true);
-  }, [login]);
+  }, [login, username]);
 
-  return { login, logout, token, id, ready }
+  return { login, logout, token, id, username, ready }
 }
 
 export default useAuth;
