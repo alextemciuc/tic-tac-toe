@@ -9,7 +9,7 @@ function MainPage() {
 
   function playHandler() {
     if (token) {
-      return navigate('/tictactoe');
+      return navigate('/tic-tac-toe');
     }
     navigate('/login');
   }

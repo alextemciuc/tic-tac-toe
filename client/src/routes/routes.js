@@ -13,7 +13,7 @@ function useRoutes(isAuthenticated) {
           <MainPage />
         }
         />
-        <Route path="/tictactoe" element={
+        <Route path="/tic-tac-toe" element={
           <TicTacToePage />
         }
         />

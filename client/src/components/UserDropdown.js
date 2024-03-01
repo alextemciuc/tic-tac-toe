@@ -17,6 +17,7 @@ function UserDropdown() {
       <NavLink className="nav-link dropdown-toggle" to="/username" role="button" data-bs-toggle="dropdown" aria-expanded="false">{username}</NavLink>
       <ul className="dropdown-menu">
         <li><Link className="dropdown-item" to="/account">Account</Link></li>
+        <li><Link className="dropdown-item" to="/match-history">Match history</Link></li>
         <li><Link className="dropdown-item" to="/setting">Setting</Link></li>
         <li><Link className="dropdown-item" to="/" onClick={logoutHandler}>Log out</Link></li>
       </ul>
