@@ -30,7 +30,7 @@ function useAuth() {
     }
 
     setReady(true);
-  }, [login, username]);
+  }, [login]);
 
   return { login, logout, token, id, username, ready }
 }
