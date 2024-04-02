@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 function UserDropdown() {
@@ -14,12 +14,12 @@ function UserDropdown() {
 
   return (
     <div className="dropdown">
-      <NavLink className="nav-link dropdown-toggle" to="/username" role="button" data-bs-toggle="dropdown" aria-expanded="false">{username}</NavLink>
+      <a className="nav-link dropdown-toggle" href="/username" role="button" data-bs-toggle="dropdown" aria-expanded="false">{username}</a>
       <ul className="dropdown-menu">
-        <li><Link className="dropdown-item" to="/account">Account</Link></li>
-        <li><Link className="dropdown-item" to="/match-history">Match history</Link></li>
-        <li><Link className="dropdown-item" to="/setting">Setting</Link></li>
-        <li><Link className="dropdown-item" to="/" onClick={logoutHandler}>Log out</Link></li>
+        <li><a className="dropdown-item" href="/account">Account</a></li>
+        <li><a className="dropdown-item" href="/match-history">Match history</a></li>
+        <li><a className="dropdown-item" href="/setting">Setting</a></li>
+        <li><a className="dropdown-item" href="/" onClick={logoutHandler}>Log out</a></li>
       </ul>
     </div>
   );
