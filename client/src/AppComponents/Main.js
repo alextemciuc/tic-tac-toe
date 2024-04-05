@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Main.css";
 import GameLayout from './GameLayout';
 import ScoreInfo from './ScoreInfo';
@@ -6,6 +6,7 @@ import WinnerLayout from './WinnerLayout';
 import MenuLayout from './MenuLayout';
 import PauseLayout from './PauseLayout';
 import getWinner from "../utils/getWinner";
+import AuthContext from "../context/AuthContext";
 
 function Main() {
 
@@ -15,6 +16,7 @@ function Main() {
     [{content: '', id: 7}, {content: '', id: 8}, {content: '', id: 9}]
   ]);
 
+  const { username } = useContext(AuthContext);
   const [playerTurn, setPlayerTurn] = React.useState('X');
   const [menuLayoutState, setMenuLayoutState] = React.useState(true);
   const [gameLayoutState, setGameLayoutState] = React.useState(false);
@@ -27,11 +29,11 @@ function Main() {
     const winner = getWinner(cells);
 
     if (winner === 'X') {
-      setWinnerText('Player1 win!');
+      setWinnerText(`${username} win!`);
       setWinnerLayoutState(true);
       setScore([score[0] + 1, score[1]]);
     } else if (winner === 'O') {
-      setWinnerText('Player2 win!');
+      setWinnerText('player win!');
       setWinnerLayoutState(true);
       setScore([score[0], score[1] + 1]);
     } else if (winner === 'D') {

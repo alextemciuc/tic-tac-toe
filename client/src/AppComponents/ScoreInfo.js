@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ScoreInfo.css";
 import { FaHome, FaVolumeUp } from "react-icons/fa";
+import AuthContext from "../context/AuthContext";
 
 function ScoreInfo(props) {
+  const { username } = useContext(AuthContext);
+
   return (
     <div className="info-layout">
       <div className="info-layout-buttons-container">
@@ -14,10 +17,10 @@ function ScoreInfo(props) {
         </button>
       </div>
       <div className="score-info">
-        <div className="player1-name float">Player1(X)</div>
+        <div className="player1-name float">{username}</div>
         <div className="player1-score float">{props.score[0]}</div>
         <div className="player2-score float">{props.score[1]}</div>
-        <div className="player2-name float">Player2(O)</div>
+        <div className="player2-name float">player</div>
       </div>
     </div>
   );
