@@ -20,7 +20,7 @@ function App() {
     <AuthContext.Provider value={{ login, logout, token, id, username, isAuthenticated }}>
       <BrowserRouter>
         <Navbar />
-        <div className='container'>
+        <div className='container mt-3 bg-primary-subtle'>
           {routes}
         </div>
       </BrowserRouter>

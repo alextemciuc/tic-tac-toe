@@ -15,7 +15,7 @@ function MainPage() {
   }
 
   return (
-    <div className="row justify-content-center mt-3 bg-primary-subtle">
+    <div className="row justify-content-center">
       <div className="col-4 pt-3 pb-3">
         <div className="d-flex justify-content-center">
           <img src={tictactoeLogo} alt="Tic tac toe logo" style={{ height: "100px", width: "100px", userSelect: "none" }} />

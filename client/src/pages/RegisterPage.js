@@ -31,7 +31,7 @@ function RegisterPage() {
   }
 
   return (
-    <div className="row justify-content-center mt-3 bg-primary-subtle">
+    <div className="row justify-content-center">
       <div className="col-4 pt-3 pb-3">
         <div className="mb-3">
           <span>
