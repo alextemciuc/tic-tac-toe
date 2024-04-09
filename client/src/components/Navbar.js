@@ -1,24 +1,9 @@
 import React, { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import UserDropdown from "./UserDropdown";
-import { useNavigate } from "react-router-dom";
-import useHttp from "../hooks/http.hook";
 
 function Navbar() {
-  const { token, logout } = useContext(AuthContext);
-  const { request } = useHttp();
-  const navigate = useNavigate();
-
-  async function tictactoeHandler(event) {
-    event.preventDefault();
-    try {
-      await request('/api/auth/check', 'POST', null, {Authorization: `Bearer ${token}`});
-      navigate('/tic-tac-toe');
-    } catch (e) {
-      logout();
-      navigate('/');
-    }
-  }
+  const { token } = useContext(AuthContext);
 
   return (
     <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -33,7 +18,7 @@ function Navbar() {
               <a className="nav-link" aria-current="page" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/tic-tac-toe" onClick={tictactoeHandler}>Tic Tac Toe</a>
+              <a className="nav-link" href="/tic-tac-toe">Tic Tac Toe</a>
             </li>
             <li className="nav-item">
               { token ? <UserDropdown /> : <a className="nav-link" href="/login">Sign In</a> }
