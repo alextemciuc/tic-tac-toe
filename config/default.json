@@ -1,5 +1,6 @@
 {
   "port": 5000,
-  "jwtSecret": "alex mern practices",
+  "jwtAccessSecret": "tic-tac-access",
+  "jwtRefreshSecret": "tic-tac-refresh",
   "mongoUri": "mongodb+srv://alextemciuc:1111@cluster0.csalzid.mongodb.net/app?retryWrites=true&w=majority"
 }
