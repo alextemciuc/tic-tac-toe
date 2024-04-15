@@ -25,6 +25,15 @@ class TokenService {
     return token;
   }
 
+  validateAccessToken(token) {
+    try {
+      const userData = jwt.verify(token, config.get('jwtAccessSecret'));
+      return userData
+    } catch (e) {
+      return null;
+    }
+  }
+
   validateRefreshToken(token) {
     try {
       const userData = jwt.verify(token, config.get('jwtRefreshSecret'));
