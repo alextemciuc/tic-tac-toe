@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useHttp from "../hooks/http.hook";
 
 function RegisterPage() {
-  const {loading, request, error, clearError} = useHttp();
+  const {loading, request} = useHttp();
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -12,22 +12,21 @@ function RegisterPage() {
     password: ''
   });
 
-  useEffect(() => {
-    if (error) {
-      alert(error);
-      clearError();
-    }
-  }, [error, clearError]);
-
   function changeHandler(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
 
   async function registerHandler() {
     try {
-      const data = await request('/api/auth/register', 'POST', {...form});
+      const response = await request('/api/auth/register', 'POST', {...form});
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || 'Something wrong.');
+      }
       console.log('Data: ', data);
-    } catch (e) {}
+    } catch (e) {
+      alert(e.message);
+    }
   }
 
   return (
