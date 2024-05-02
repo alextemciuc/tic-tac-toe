@@ -4,18 +4,11 @@ import AuthContext from "../context/AuthContext";
 
 function LoginPage() {
   const { login } = useContext(AuthContext);
-  const {loading, request, error, clearError} = useHttp();
+  const {loading, request} = useHttp();
   const [form, setForm] = useState({
     email: '',
     password: ''
   });
-
-  useEffect(() => {
-    if (error) {
-      alert(error);
-      clearError();
-    }
-  }, [error, clearError]);
 
   function changeHandler(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -23,9 +16,15 @@ function LoginPage() {
 
   async function loginHandler() {
     try {
-      const data = await request('/api/auth/login', 'POST', {...form});
+      const response = await request('/api/auth/login', 'POST', {...form});
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || 'Something wrong.');
+      }
       login(data.token, data.userId, data.username);
-    } catch (e) {}
+    } catch (e) {
+      alert(e.message);
+    }
   }
 
   return (
