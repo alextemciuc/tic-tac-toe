@@ -68,6 +68,18 @@ class AuthController {
     }
   }
 
+  async logout(req, res) {
+    try {
+      const { refreshToken } = req.cookies;
+      const token = await tokenService.removeToken(refreshToken);
+
+      res.clearCookie('refreshToken');
+      return res.json(token);
+    } catch (e) {
+      res.status(500).json({ message: 'Something wrong' });
+    }
+  }
+
   async refresh(req, res) {
     try {
       const { refreshToken } = req.cookies;
