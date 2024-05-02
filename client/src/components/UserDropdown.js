@@ -6,9 +6,9 @@ function UserDropdown() {
   const { logout, username } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  function logoutHandler(event) {
+  async function logoutHandler(event) {
     event.preventDefault();
-    logout();
+    await logout();
     navigate('/');
   }
 
