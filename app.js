@@ -3,7 +3,7 @@ const config = require('config');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const authRouter = require('./routes/auth.routes');
-const statisticRouter = require('./routes/statistic.routes');
+const statisticRouter = require('./routes/statistic-routes');
 
 const app = express();
 
