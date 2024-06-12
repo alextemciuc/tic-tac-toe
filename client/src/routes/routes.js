@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import TicTacToePage from "../pages/TicTacToePage";
 import MyAccountPage from "../pages/MyAccountPage";
+import StatisticsPage from "../pages/StatisticsPage";
 
 function useRoutes(isAuthenticated) {
   if (isAuthenticated) {
@@ -22,8 +23,12 @@ function useRoutes(isAuthenticated) {
           <MyAccountPage />
         }
         />
+        <Route path="/statistics" element={
+          <StatisticsPage />
+        }
+        />
         <Route path="*" element={
-        <Navigate to="/" replace />
+          <Navigate to="/" replace />
         }
         />
       </Routes>
