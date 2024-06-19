@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const schema = new Schema({
   firstName: {type: String, required: true},
@@ -6,7 +6,8 @@ const schema = new Schema({
   username: {type: String, required: true},
   dateOfBirth: {type: Date, required: true},
   email: {type: String, required: true, unique: true},
-  password: {type: String, required: true, unique: true}
+  password: {type: String, required: true, unique: true},
+  statistics: [{type: Types.ObjectId, ref: 'Statistic'}]
 });
 
 module.exports = model('User', schema);
